@@ -1,0 +1,205 @@
+$home-bg: #282c34;
+
+@mixin hoverm(){
+  transform: scale(1.2);
+}
+@mixin transition-all() {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+@mixin background-cover() {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@mixin buton($padding, $bg, $color, $raduis) {
+
+  padding: $padding;
+  background-color: $bg;
+  border:0.5px solid darken($bg, 10%);
+  color:$color;
+  cursor: pointer;
+  border-radius: $raduis;
+
+}
+@mixin sans-serif-font() {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+@mixin rounded($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin btn($padding, $border) {
+  background-color: transparent;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: none;
+  padding: $padding;
+
+  &:hover {
+    color: $border;
+    border-color: darken($border, 12%);
+
+  }
+
+}
+
+$desktop: 840px;
+
+@mixin desktop {
+  @media(min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin linear-gradient($from, $to) {
+  /* Fallback for sad browsers */
+  background-color: $to;
+  /* Mozilla Firefox */
+  background-image:-moz-linear-gradient($from, $to);
+  /* Opera */
+  background-image:-o-linear-gradient($from, $to);
+  /* WebKit (Chrome 11+) */
+  background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, $from), colorstop(1, $to));
+  /* WebKit (Safari 5.1+, Chrome 10+) */
+  background-image: -webkit-linear-gradient($from, $to);
+  /* IE10 */
+  background-image: -ms-linear-gradient($from, $to);
+  /* W3C */
+  background-image: linear-gradient($from, $to);
+}
+
+$text-light: #ccdcf5;
+
+
+
+.flex {
+  display: flex;
+ 
+}
+.container {
+  width: 85%;
+  margin: 0 auto;
+
+}
+.middle {
+  align-items: center;
+}
+.bg-blue {
+  background-color: #282c34;
+  
+}
+.content {
+  min-height: 100vh;
+  
+}
+.unstyled {
+  list-style-type: none;
+  li {
+    display: inline;
+    margin-right: 1.2em;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+a.link {
+  color: #fff;
+  text-decoration: none;
+  &.active {
+    color: $text-light
+  }
+}
+
+#logo{
+  font-size: 2em;
+font-weight: bold;
+color:
+#9897cc;
+}
+.grid-flex {
+  display: grid;
+  @include desktop(){
+  grid-template-columns: 50% auto;
+}
+}
+.primary { 
+  color: $text-light
+}
+.large-text {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.white {
+  color: white 
+}
+.bold{
+  font-weight: bold;
+}
+#bigger{
+  padding: 0 10%;
+  align-items: center;
+  align-content: center;
+  margin: 15px 0;
+  @include desktop(){
+    margin: 0;
+  height: 50vh;}
+  text-align: center;
+  justify-content: center;
+
+}
+#smaller{
+  text-align: center;
+  justify-content: center;
+
+}
+.projects{
+  padding: 2em 0;
+  @include desktop(){
+    padding: 0 0 2em 0;
+  }
+}
+.haf{
+  width: 50%
+}
+.project-info{
+  display: inline-block;
+  text-align: center
+}
+#think{
+  max-width: 40vw;
+}
+.about-me{
+  width: 80%;
+}
+.fixed{
+  position: absolute;
+  top:20px;
+  right: 20px;
+  @include desktop(){
+    position: fixed;
+  font-size: 2em;}
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+  i{
+    display: block;
+    margin: 2em 0;
+  }
+
+}
